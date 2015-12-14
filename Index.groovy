@@ -15,10 +15,10 @@ public class Get implements RestApiController {
         ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
 
         Calendar calendar = Calendar.getInstance();
-        long timeMilli2 = calendar.getTimeInMillis();
+        long timeMilli = calendar.getTimeInMillis();
 
         Map<String, String> response = [:];
-        response.put("now", timeMilli2);
+        response.put("now", timeMilli);
         response.putAll(request.parameterMap);
         apiResponseBuilder.with {
             withResponse new JsonBuilder(response).toPrettyString();
